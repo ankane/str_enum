@@ -16,7 +16,13 @@ Add this line to your application’s Gemfile:
 gem 'str_enum'
 ```
 
-In your models, use:
+Add a string column to your model.
+
+```ruby
+add_column :users, :status, :string
+```
+
+And use:
 
 ```ruby
 class User < ActiveRecord::Base
@@ -45,6 +51,12 @@ user.valid? # false
 ```ruby
 user.active?
 user.archived?
+```
+
+#### Forms
+
+```erb
+<%= f.select :status, User.statuses.map { |s| [s.titleize, s] } %>
 ```
 
 ## Options
