@@ -16,7 +16,7 @@ class StrEnumTest < Minitest::Test
     assert_equal 0, User.archived.count
   end
 
-  def test_accessors
+  def test_accessor_methods
     user = User.create!
     assert user.active?
     assert !user.archived?
@@ -26,6 +26,10 @@ class StrEnumTest < Minitest::Test
     user = User.new(status: "unknown")
     assert !user.save
     assert_equal ["Status is not included in the list"], user.errors.full_messages
+  end
+
+  def test_list_values
+    assert_equal %w(active archived), User.statuses
   end
 
   def test_prefix_scopes

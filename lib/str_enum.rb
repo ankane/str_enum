@@ -18,6 +18,9 @@ module StrEnum
     after_initialize do
       send("#{column}=", values.first) unless send(column)
     end
+    define_singleton_method column.to_s.pluralize do
+      values
+    end
   end
 end
 
