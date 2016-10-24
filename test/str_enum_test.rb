@@ -27,4 +27,16 @@ class StrEnumTest < Minitest::Test
     assert !user.save
     assert_equal ["Status is not included in the list"], user.errors.full_messages
   end
+
+  def test_prefix_scopes
+    User.create!
+    assert_equal 1, User.address_active.count
+    assert_equal 0, User.address_archived.count
+  end
+
+  def test_prefix_accessors
+    user = User.create!
+    assert user.address_active?
+    assert !user.address_archived?
+  end
 end

@@ -1,6 +1,6 @@
 # str_enum
 
-Don’t want to store enums as integers in your database? Introducing...
+Don’t like storing enums as integers in your database? Introducing...
 
 String enums for Rails!! :tada:
 
@@ -24,37 +24,53 @@ class User < ActiveRecord::Base
 end
 ```
 
-The first value will be the initial value. This gives you...
+The first value will be the initial value. This gives you:
 
-### Scopes
+#### Scopes
 
 ```ruby
 User.active
 User.archived
 ```
 
-### Validations
+#### Validations
 
 ```ruby
 user = User.new(status: "unknown")
 user.valid? # false
 ```
 
-### Accessor Methods
+#### Accessor Methods
 
 ```ruby
 user.active?
 user.archived?
 ```
 
-## Customize
+## Options
 
-Choose which features you want
+Choose which features you want with:
 
 ```ruby
 class User < ActiveRecord::Base
   str_enum :status, [:active, :archived], scopes: false, validate: false, accessor_methods: false
 end
+```
+
+Prevent name collisions with the `prefix` option.
+
+```ruby
+class User < ActiveRecord::Base
+  str_enum :address_status, [:active, :archived], prefix: :address
+end
+
+# scopes
+User.address_active
+User.address_archived
+
+# accessor methods
+user.address_active?
+user.address_archived?
 ```
 
 ## Contributing
