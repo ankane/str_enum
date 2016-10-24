@@ -57,7 +57,7 @@ class User < ActiveRecord::Base
 end
 ```
 
-Prevent name collisions with the `prefix` option.
+Prevent method name collisions with the `prefix` option.
 
 ```ruby
 class User < ActiveRecord::Base
