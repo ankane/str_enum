@@ -69,20 +69,20 @@ class User < ActiveRecord::Base
 end
 ```
 
-Prevent method name collisions with the `prefix` option.
+Prevent method name collisions with the `prefix` and `suffix` options.
 
 ```ruby
 class User < ActiveRecord::Base
-  str_enum :address_status, [:active, :archived], prefix: :address
+  str_enum :address_status, [:active, :archived], suffix: :address
 end
 
 # scopes
-User.address_active
-User.address_archived
+User.active_address
+User.archived_address
 
 # accessor methods
-user.address_active?
-user.address_archived?
+user.active_address?
+user.archived_address?
 ```
 
 ## History

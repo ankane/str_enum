@@ -1,3 +1,7 @@
+## 0.1.3 [unreleased]
+
+- Added `suffix` option
+
 ## 0.1.2
 
 - Added method to list values

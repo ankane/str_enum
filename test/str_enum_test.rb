@@ -43,4 +43,16 @@ class StrEnumTest < Minitest::Test
     assert user.address_active?
     assert !user.address_archived?
   end
+
+  def test_suffix_scopes
+    User.create!
+    assert_equal 1, User.guest_kind.count
+    assert_equal 0, User.vip_kind.count
+  end
+
+  def test_suffix_accessors
+    user = User.create!
+    assert user.guest_kind?
+    assert !user.vip_kind?
+  end
 end
