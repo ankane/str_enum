@@ -55,4 +55,9 @@ class StrEnumTest < Minitest::Test
     assert user.guest_kind?
     assert !user.vip_kind?
   end
+
+  def test_select
+    User.create!
+    assert_equal 1, User.active.select(:id).map { |v| v }.size
+  end
 end
