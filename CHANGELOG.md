@@ -1,3 +1,7 @@
+## 0.1.5 [unreleased]
+
+- Added ability to include manually
+
 ## 0.1.4
 
 - Fixed error with `select`
