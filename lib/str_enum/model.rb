@@ -5,7 +5,7 @@ module StrEnum
     extend ActiveSupport::Concern
 
     class_methods do
-      def str_enum(column, values, validate: true, scopes: true, accessor_methods: true, prefix: false, suffix: false)
+      def str_enum(column, values, validate: true, scopes: true, accessor_methods: true, prefix: false, suffix: false, default: true)
         values = values.map(&:to_s)
         validates column, presence: true, inclusion: {in: values} if validate
         values.each do |value|
@@ -19,8 +19,9 @@ module StrEnum
             end
           end
         end
+        default_value = default == true ? values.first : default
         after_initialize do
-          send("#{column}=", values.first) unless try(column)
+          send("#{column}=", default_value) unless try(column)
         end
         define_singleton_method column.to_s.pluralize do
           values

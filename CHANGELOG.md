@@ -1,5 +1,6 @@
 ## 0.1.5 [unreleased]
 
+- Added `default` option
 - Added ability to include manually
 
 ## 0.1.4
