@@ -65,7 +65,11 @@ Choose which features you want with:
 
 ```ruby
 class User < ActiveRecord::Base
-  str_enum :status, [:active, :archived], scopes: false, validate: false, accessor_methods: false
+  str_enum :status, [:active, :archived],
+    scopes: false,
+    validate: false,
+    accessor_methods: false,
+    default: nil
 end
 ```
 
