@@ -5,9 +5,17 @@ module StrEnum
     extend ActiveSupport::Concern
 
     class_methods do
-      def str_enum(column, values, validate: true, scopes: true, accessor_methods: true, prefix: false, suffix: false, default: true)
+      def str_enum(column, values, validate: true, scopes: true, accessor_methods: true, prefix: false, suffix: false, default: true, allow_blank: false)
         values = values.map(&:to_s)
-        validates column, presence: true, inclusion: {in: values} if validate
+        if validate
+          validate_options = {inclusion: {in: values}}
+          if allow_blank
+            validate_options[:allow_blank] = true
+          else
+            validate_options[:presence] = true
+          end
+          validates column, validate_options
+        end
         values.each do |value|
           prefix = column if prefix == true
           suffix = column if suffix == true
