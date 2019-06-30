@@ -51,6 +51,8 @@ user.valid? # false
 ```ruby
 user.active?
 user.archived?
+user.active!
+user.archived!
 ```
 
 #### Forms
@@ -87,6 +89,8 @@ User.archived_address
 # accessor methods
 user.active_address?
 user.archived_address?
+user.active_address!
+user.archived_address!
 ```
 
 ## History
