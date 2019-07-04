@@ -9,6 +9,8 @@ String enums for Rails!! :tada:
 - accessor methods
 - state change methods
 
+[![Build Status](https://travis-ci.org/ankane/str_enum.svg?branch=master)](https://travis-ci.org/ankane/str_enum)
+
 ## Getting Started
 
 Add this line to your application’s Gemfile:
