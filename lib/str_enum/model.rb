@@ -26,7 +26,7 @@ module StrEnum
               read_attribute(column) == value
             end
             define_method "#{method_name}!" do
-              write_attribute(column, value)
+              update!(column => value)
             end
           end
         end
