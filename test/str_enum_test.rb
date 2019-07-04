@@ -20,8 +20,18 @@ class StrEnumTest < Minitest::Test
     user = User.create!
     assert user.active?
     assert !user.archived?
+  end
+
+  def test_state_change_methods
+    user = User.create!
     user.archived!
     assert user.archived?
+    user.reload
+    assert user.archived?
+    user.active!
+    assert user.active?
+    user.reload
+    assert user.active?
   end
 
   def test_validation

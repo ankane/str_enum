@@ -7,6 +7,7 @@ String enums for Rails!! :tada:
 - scopes
 - validations
 - accessor methods
+- state change methods
 
 ## Getting Started
 
@@ -51,6 +52,11 @@ user.valid? # false
 ```ruby
 user.active?
 user.archived?
+```
+
+### State Change Methods
+
+```ruby
 user.active!
 user.archived!
 ```
@@ -89,6 +95,8 @@ User.archived_address
 # accessor methods
 user.active_address?
 user.archived_address?
+
+# state change methods
 user.active_address!
 user.archived_address!
 ```
