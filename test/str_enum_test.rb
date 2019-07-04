@@ -20,6 +20,8 @@ class StrEnumTest < Minitest::Test
     user = User.create!
     assert user.active?
     assert !user.archived?
+    user.archived!
+    assert user.archived?
   end
 
   def test_validation

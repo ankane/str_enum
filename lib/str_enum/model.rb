@@ -25,6 +25,9 @@ module StrEnum
             define_method "#{method_name}?" do
               read_attribute(column) == value
             end
+            define_method "#{method_name}!" do
+              write_attribute(column, value)
+            end
           end
         end
         default_value = default == true ? values.first : default
