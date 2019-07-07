@@ -56,7 +56,7 @@ user.active?
 user.archived?
 ```
 
-#### State Change Methods
+#### State Change Methods [master]
 
 ```ruby
 user.active!
