@@ -1,6 +1,6 @@
 ## 0.1.6 [unreleased]
 
-- Added state change methods
+- Added update methods
 
 ## 0.1.5
 

@@ -7,7 +7,7 @@ String enums for Rails!! :tada:
 - scopes
 - validations
 - accessor methods
-- state change methods
+- update methods
 
 [![Build Status](https://travis-ci.org/ankane/str_enum.svg?branch=master)](https://travis-ci.org/ankane/str_enum)
 
@@ -56,7 +56,7 @@ user.active?
 user.archived?
 ```
 
-#### State Change Methods [master]
+#### Update Methods [master]
 
 ```ruby
 user.active!
