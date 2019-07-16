@@ -98,7 +98,7 @@ User.archived_address
 user.active_address?
 user.archived_address?
 
-# state change methods
+# update methods
 user.active_address!
 user.archived_address!
 ```
