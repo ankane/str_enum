@@ -79,6 +79,7 @@ class User < ActiveRecord::Base
     scopes: false,
     validate: false,
     accessor_methods: false,
+    update_methods: false,
     default: nil
 end
 ```
