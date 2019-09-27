@@ -63,7 +63,7 @@ user.active?
 user.archived?
 ```
 
-#### Update Methods [master]
+#### Update Methods
 
 ```ruby
 user.active!
