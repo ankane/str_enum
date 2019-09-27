@@ -42,6 +42,13 @@ User.active
 User.archived
 ```
 
+And negative scopes [master]
+
+```ruby
+User.not_active
+User.not_archived
+```
+
 #### Validations
 
 ```ruby

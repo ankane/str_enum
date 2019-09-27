@@ -1,6 +1,7 @@
 ## 0.1.6
 
 - Added update methods
+- Added negative scopes
 
 ## 0.1.5
 

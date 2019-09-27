@@ -20,7 +20,10 @@ module StrEnum
           prefix = column if prefix == true
           suffix = column if suffix == true
           method_name = [prefix, value, suffix].select { |v| v }.join("_")
-          scope method_name, -> { where(column => value) } if scopes && !respond_to?(method_name)
+          if scopes
+            scope method_name, -> { where(column => value) } unless respond_to?(method_name)
+            scope "not_#{method_name}", -> { where.not(column => value) } unless respond_to?("not_#{method_name}")
+          end
           if accessor_methods && !method_defined?("#{method_name}?")
             define_method "#{method_name}?" do
               read_attribute(column) == value

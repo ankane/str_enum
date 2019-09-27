@@ -72,4 +72,10 @@ class StrEnumTest < Minitest::Test
     User.create!
     assert_equal 1, User.active.select(:id).map { |v| v }.size
   end
+
+  def test_negative_scopes
+    User.create!
+    assert_equal 0, User.not_active.count
+    assert_equal 1, User.not_archived.count
+  end
 end
