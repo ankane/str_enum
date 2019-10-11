@@ -8,12 +8,13 @@ module StrEnum
       def str_enum(column, values, validate: true, scopes: true, accessor_methods: true, update_methods: true, prefix: false, suffix: false, default: true, allow_nil: false)
         values = values.map(&:to_s)
         if validate
-          validate_options = {inclusion: {in: values}}
+          validate_options = {}
           if allow_nil
             validate_options[:allow_nil] = true
           else
             validate_options[:presence] = true
           end
+          validate_options[:inclusion] = {in: values}
           validates column, validate_options
         end
         values.each do |value|

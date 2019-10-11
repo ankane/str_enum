@@ -1,6 +1,7 @@
-## 0.1.7 [unreleased]
+## 0.2.0 [unreleased]
 
 - Added negative scopes
+- Moved presence validation message before inclusion message
 
 ## 0.1.6
 

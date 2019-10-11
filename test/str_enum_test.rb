@@ -40,6 +40,12 @@ class StrEnumTest < Minitest::Test
     assert_equal ["Status is not included in the list"], user.errors.full_messages
   end
 
+  def test_validation_blank_first
+    user = User.new(status: "")
+    assert !user.save
+    assert_equal ["Status can't be blank", "Status is not included in the list"], user.errors.full_messages
+  end
+
   def test_list_values
     assert_equal %w(active archived), User.statuses
   end
