@@ -42,7 +42,7 @@ User.active
 User.archived
 ```
 
-And negative scopes [master]
+And negative scopes
 
 ```ruby
 User.not_active
