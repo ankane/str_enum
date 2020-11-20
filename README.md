@@ -9,7 +9,7 @@ String enums for Rails!! :tada:
 - accessor methods
 - update methods
 
-[![Build Status](https://travis-ci.org/ankane/str_enum.svg?branch=master)](https://travis-ci.org/ankane/str_enum)
+[![Build Status](https://github.com/ankane/str_enum/workflows/build/badge.svg?branch=master)](https://github.com/ankane/str_enum/actions)
 
 ## Getting Started
 
