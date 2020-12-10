@@ -4,8 +4,6 @@ require "minitest/autorun"
 require "minitest/pride"
 require "active_record"
 
-Minitest::Test = Minitest::Unit::TestCase unless defined?(Minitest::Test)
-
 ActiveRecord::Base.logger = Logger.new(ENV["VERBOSE"] ? STDOUT : nil)
 ActiveRecord::Migration.verbose = ENV["VERBOSE"]
 
