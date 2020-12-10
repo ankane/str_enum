@@ -6,8 +6,8 @@ require "active_record"
 
 Minitest::Test = Minitest::Unit::TestCase unless defined?(Minitest::Test)
 
-# for debugging
-ActiveRecord::Base.logger = Logger.new(STDOUT) if ENV["DEBUG"]
+ActiveRecord::Base.logger = Logger.new(ENV["VERBOSE"] ? STDOUT : nil)
+ActiveRecord::Migration.verbose = ENV["VERBOSE"]
 
 # migrations
 ActiveRecord::Base.establish_connection adapter: "sqlite3", database: ":memory:"
