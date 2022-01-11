@@ -1,3 +1,7 @@
+## 0.3.0 (unreleased)
+
+- Dropped support for Ruby < 2.6 and Active Record < 5.2
+
 ## 0.2.0 (2019-10-28)
 
 - Added negative scopes
