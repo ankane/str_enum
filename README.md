@@ -16,7 +16,7 @@ String enums for Rails!! :tada:
 Add this line to your application’s Gemfile:
 
 ```ruby
-gem 'str_enum'
+gem "str_enum"
 ```
 
 Add a string column to your model.
