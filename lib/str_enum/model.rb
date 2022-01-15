@@ -5,7 +5,7 @@ module StrEnum
     extend ActiveSupport::Concern
 
     class_methods do
-      def str_enum(column, values, validate: true, scopes: true, accessor_methods: true, update_methods: true, prefix: false, suffix: false, default: true, allow_nil: false)
+      def str_enum(enum_name, values, validate: true, scopes: true, accessor_methods: true, update_methods: true, prefix: false, suffix: false, default: true, allow_nil: false, column: enum_name)
         values = values.map(&:to_s)
         if validate
           validate_options = {}
@@ -18,8 +18,8 @@ module StrEnum
           validates column, validate_options
         end
         values.each do |value|
-          prefix = column if prefix == true
-          suffix = column if suffix == true
+          prefix = enum_name if prefix == true
+          suffix = enum_name if suffix == true
           method_name = [prefix, value, suffix].select { |v| v }.join("_")
           if scopes
             scope method_name, -> { where(column => value) } unless respond_to?(method_name)
@@ -40,8 +40,18 @@ module StrEnum
         after_initialize do
           send("#{column}=", default_value) unless try(column)
         end
-        define_singleton_method column.to_s.pluralize do
+        define_singleton_method enum_name.to_s.pluralize do
           values
+        end
+        if enum_name.to_s != column.to_s
+          # the enum_name is then an alias to the column
+          define_method(enum_name) do
+            read_attribute(column)
+          end
+
+          define_method("#{enum_name}=") do |value|
+            send("#{column}=", value)
+          end
         end
       end
     end

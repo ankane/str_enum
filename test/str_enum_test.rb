@@ -84,4 +84,48 @@ class StrEnumTest < Minitest::Test
     assert_equal 0, User.not_active.count
     assert_equal 1, User.not_archived.count
   end
+
+  def test_explicit_column_defaults
+    user = User.new
+    assert_equal "lowly", user.rank
+    assert_equal "lowly", user.rank_str
+  end
+
+  def test_explicit_column_scopes
+    User.create!
+    assert_equal 1, User.lowly.count
+    assert_equal 0, User.high_falutin.count
+  end
+
+  def test_explicit_column_accessors
+    user = User.new
+    assert user.lowly?
+    assert !user.high_falutin?
+  end
+
+  def test_explicit_column_state_change_methods
+    user = User.create!
+    user.middling!
+    assert user.middling?
+    user.reload
+    assert user.middling?
+    user.high_falutin!
+    assert user.high_falutin?
+    user.reload
+    assert user.high_falutin?
+  end
+
+  def test_explicit_column_validation
+    user = User.new(rank: "unknown")
+    assert !user.save
+    assert_equal ["Rank str is not included in the list"], user.errors.full_messages
+
+    user = User.new(rank_str: "unknown")
+    assert !user.save
+    assert_equal ["Rank str is not included in the list"], user.errors.full_messages
+  end
+
+  def test_explicit_column_list_values
+    assert_equal %w(lowly middling high_falutin), User.ranks
+  end
 end
