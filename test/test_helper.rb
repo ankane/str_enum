@@ -10,10 +10,12 @@ ActiveRecord::Migration.verbose = ENV["VERBOSE"]
 # migrations
 ActiveRecord::Base.establish_connection adapter: "sqlite3", database: ":memory:"
 
-ActiveRecord::Migration.create_table :users do |t|
-  t.string :status
-  t.string :address_status
-  t.string :kind
+ActiveRecord::Schema.define do
+  create_table :users do |t|
+    t.string :status
+    t.string :address_status
+    t.string :kind
+  end
 end
 
 class User < ActiveRecord::Base
