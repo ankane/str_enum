@@ -78,16 +78,19 @@ user.archived!
 
 ## Options
 
-Choose which features you want with:
+Choose which features you want with (default values shown):
 
 ```ruby
 class User < ActiveRecord::Base
   str_enum :status, [:active, :archived],
-    scopes: false,
-    validate: false,
-    accessor_methods: false,
-    update_methods: false,
-    default: nil
+    accessor_methods: true,
+    allow_nil: false
+    default: true,
+    prefix: false,
+    scopes: true,
+    suffix: false,    
+    update_methods: true,
+    validate: true
 end
 ```
 
