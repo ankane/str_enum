@@ -84,7 +84,7 @@ Choose which features you want with (default values shown):
 class User < ActiveRecord::Base
   str_enum :status, [:active, :archived],
     accessor_methods: true,
-    allow_nil: false
+    allow_nil: false,
     default: true,
     prefix: false,
     scopes: true,
