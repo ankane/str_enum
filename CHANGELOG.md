@@ -1,3 +1,7 @@
+## 0.4.0 (unreleased)
+
+- Dropped support for Ruby < 3 and Active Record < 6.1
+
 ## 0.3.0 (2022-01-10)
 
 - Dropped support for Ruby < 2.6 and Active Record < 5.2
