@@ -43,7 +43,11 @@ class StrEnumTest < Minitest::Test
   def test_validation_blank_first
     user = User.new(status: "")
     assert !user.save
-    assert_equal ["Status can't be blank", "Status is not included in the list"], user.errors.full_messages
+    if ActiveRecord::VERSION::STRING.to_f >= 7.1
+      assert_equal ["Status can’t be blank", "Status is not included in the list"], user.errors.full_messages
+    else
+      assert_equal ["Status can't be blank", "Status is not included in the list"], user.errors.full_messages
+    end
   end
 
   def test_list_values
