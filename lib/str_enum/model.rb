@@ -38,7 +38,7 @@ module StrEnum
         end
         default_value = default == true ? values.first : default
         after_initialize do
-          send("#{column}=", default_value) unless try(column)
+          send("#{column}=", default_value) if has_attribute?(column) && !try(column)
         end
         define_singleton_method column.to_s.pluralize do
           values

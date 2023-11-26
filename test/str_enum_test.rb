@@ -76,7 +76,9 @@ class StrEnumTest < Minitest::Test
 
   def test_select
     User.create!
-    assert_equal 1, User.active.select(:id).map { |v| v }.size
+    user = User.active.select(:id).last
+    assert user.has_attribute?(:id)
+    refute user.has_attribute?(:status)
   end
 
   def test_negative_scopes

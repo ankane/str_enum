@@ -1,3 +1,7 @@
+## 0.4.1 (unreleased)
+
+- Fixed issue with `select`
+
 ## 0.4.0 (2023-07-02)
 
 - Dropped support for Ruby < 3 and Active Record < 6.1
