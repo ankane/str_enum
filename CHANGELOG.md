@@ -1,4 +1,4 @@
-## 0.4.1 (unreleased)
+## 0.4.1 (2023-11-28)
 
 - Fixed issue with `select`
 
