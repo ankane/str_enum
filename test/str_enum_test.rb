@@ -46,6 +46,12 @@ class StrEnumTest < Minitest::Test
     assert_equal ["Status can't be blank", "Status is not included in the list"], user.errors.full_messages
   end
 
+  def test_validation_custom_message
+    user = User.new(role: "unknown")
+    assert !user.save
+    assert_equal ["Role is not valid"], user.errors.full_messages
+  end
+
   def test_list_values
     assert_equal %w(active archived), User.statuses
   end

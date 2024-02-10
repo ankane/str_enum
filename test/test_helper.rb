@@ -15,6 +15,7 @@ ActiveRecord::Schema.define do
     t.string :status
     t.string :address_status
     t.string :kind
+    t.string :role
   end
 end
 
@@ -22,4 +23,5 @@ class User < ActiveRecord::Base
   str_enum :status, [:active, :archived]
   str_enum :address_status, [:active, :archived], prefix: :address
   str_enum :kind, [:guest, :vip], suffix: true
+  str_enum :role, %i[admin client], message: "is not valid"
 end

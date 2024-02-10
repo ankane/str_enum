@@ -88,9 +88,10 @@ class User < ActiveRecord::Base
     default: true,
     prefix: false,
     scopes: true,
-    suffix: false,    
+    suffix: false,
     update_methods: true,
     validate: true
+    message: nil
 end
 ```
 
@@ -112,6 +113,14 @@ user.archived_address?
 # update methods
 user.active_address!
 user.archived_address!
+```
+
+Override default inclusion error message with `message` option.
+
+```ruby
+class User < ActiveRecord::Base
+  str_enum :role, %i[admin client], message: "is not valid"
+end
 ```
 
 ## History
