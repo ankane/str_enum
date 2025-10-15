@@ -86,4 +86,10 @@ class StrEnumTest < Minitest::Test
     assert_equal 0, User.not_active.count
     assert_equal 1, User.not_archived.count
   end
+
+  def test_attr_readonly
+    user = User.create!
+    # Should not raise
+    User.find(user.id)
+  end
 end
