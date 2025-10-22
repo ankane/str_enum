@@ -4,6 +4,6 @@ gemspec
 
 gem "rake"
 gem "minitest"
-gem "activerecord", "~> 8.0.0"
+gem "activerecord", "~> 8.1.0"
 gem "sqlite3", platform: :ruby
 gem "sqlite3-ffi", platform: :jruby
